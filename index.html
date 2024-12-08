@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Winfred - Portfolio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--bg-color, #f4f4f9);
+      color: var(--text-color, #333);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    .container {
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .container h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--heading-color, #2b2d42);
+      cursor: pointer;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    /* Subtle hover effect on name */
+    .container h1:hover {
+      transform: scale(1.1);
+      color: var(--hover-text-color, #8d99ae);
+    }
+
+    .container p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: var(--subtext-color, #8d99ae);
+      font-weight: 500;
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .links a {
+      width: 50px;
+      height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--link-bg-color, #2b2d42);
+      border-radius: 50%;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      text-decoration: none;
+      color: var(--link-icon-color, #fff);
+      font-size: 1.5rem;
+    }
+
+    .links a:hover {
+      transform: rotate(10deg) scale(1.05);
+      background: var(--link-hover-bg-color, #8d99ae);
+    }
+
+    /* Light and Dark Mode Variables */
+    :root {
+      --bg-color: #f4f4f9;
+      --text-color: #333;
+      --heading-color: #2b2d42;
+      --subtext-color: #8d99ae;
+      --link-bg-color: #2b2d42;
+      --link-icon-color: #fff;
+      --link-hover-bg-color: #8d99ae;
+      --hover-text-color: #8d99ae;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #2b2d42;
+      --text-color: #f4f4f9;
+      --heading-color: #edf2f4;
+      --subtext-color: #8d99ae;
+      --link-bg-color: #8d99ae;
+      --link-icon-color: #2b2d42;
+      --link-hover-bg-color: #edf2f4;
+      --hover-text-color: #8d99ae;
+    }
+
+    /* Toggle Button */
+    .toggle-btn {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      width: 50px;
+      height: 25px;
+      background: var(--link-hover-bg-color);
+      border-radius: 25px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .toggle-btn .toggle-circle {
+      width: 20px;
+      height: 20px;
+      background: var(--link-icon-color);
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    .toggle-btn[data-theme="dark"] {
+      background: var(--subtext-color);
+    }
+
+    .toggle-btn[data-theme="dark"] .toggle-circle {
+      transform: translateX(25px);
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    /* Mobile and Tablet */
+    @media (max-width: 768px) {
+      .container h1 {
+        font-size: 2.5rem;
+      }
+
+      .container p {
+        font-size: 1rem;
+      }
+
+      .links a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+
+      .links {
+        gap: 1.5rem;
+      }
+    }
+
+    /* Small Desktop / Laptop */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .container h1 {
+        font-size: 2.8rem;
+      }
+
+      .links a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.4rem;
+      }
+
+      .links {
+        gap: 1.8rem;
+      }
+    }
+
+    /* Larger Desktops */
+    @media (min-width: 1025px) {
+      .container h1 {
+        font-size: 3rem;
+      }
+
+      .links a {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+
+      .links {
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle-btn" id="theme-toggle">
+    <div class="toggle-circle"></div>
+  </div>
+  <div class="container">
+    <h1>Daniel Winfred</h1>
+    <p>Software Developer | QA Intern</p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/daniel-winfred-216132199/?originalSubdomain=in" id="linkedin" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://github.com/Danielwinfred" id="github" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="tel:+916374533611" id="phone" title="Call">
+        <i class="fas fa-phone"></i>
+      </a>
+      <a href="mailto:danielwinfred.x@gmail.com" id="email" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <!-- Resume Link -->
+      <a href="https://raw.githubusercontent.com/Danielwinfred/My-Resume/main/DANIEL%20WINFRED%20J%20(RESUME)_20241010_144657_0000.pdf" id="resume" target="_blank" title="Resume">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </div>
+  </div>
+  <script>
+    // Theme Toggle Script
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? '' : 'dark';
+      body.setAttribute('data-theme', newTheme);
+      toggleBtn.setAttribute('data-theme', newTheme);
+    });
+  </script>
+</body>
+</html>
